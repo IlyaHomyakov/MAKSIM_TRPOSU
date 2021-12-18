@@ -1,0 +1,96 @@
+.main-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.main-content-greeting {
+    display: flex;
+    min-height: calc(100vh - 60px);
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/static/img/greeting-background.jpeg");
+    background-size: cover;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 0 20px 0;
+}
+
+.cinema-title {
+    color: white;
+    font-weight: 100;
+    letter-spacing: 10px;
+    font-size: 40px;
+}
+
+.go-to-cinema-afisha {
+    color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0);
+}
+
+.go-to-cinema-afisha:hover {
+    border-bottom: 1px solid #fff;
+}
+
+.main-info {
+    color: #fff;
+    font-weight: 100;
+    letter-spacing: 5px;
+}
+
+.cinema-afisha {
+    padding: 20px;
+    width: calc(100% - 40px);
+}
+
+.most-recent-films {
+    padding: 20px 0 40px 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.film-frame {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.film-poster-link-backgrounded {
+    display: flex;
+    height: 450px;
+    width: 300px;
+    background-size: cover;
+    border-radius: 8px;
+    transition: 1s;
+}
+
+.film-poster-link-backgrounded:hover {
+
+}
+
+.film-poster-link {
+    color: black;
+    font-weight: 700;
+}
+
+.film-poster-link:hover {
+    text-decoration: underline;
+}
+
+.day-header {
+    margin: 20px 0 0 0;
+}
+.cinema-description{
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 1px;
+    padding: 0 0 20px 0;
+}
+
+.cinema-info{
+    margin: 0 0 20px 0;
+}

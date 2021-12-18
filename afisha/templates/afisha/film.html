@@ -1,0 +1,130 @@
+{% extends 'afisha/index.html' %}
+{% load static %}
+
+{% block head %}
+    <title>Фильм {{ film.film_title }} {{ film.film_year }}</title>
+    <link rel="stylesheet" href="{% static 'css/film.css' %}">
+
+{% endblock %}
+
+{% block container %}
+
+    <div class="header">
+        <a href="{% url 'main' %}" class="header-link">ABOBA CINEMA</a>
+    </div>
+
+    <div class="content">
+        <div class="film-image">
+            <img src="{{ film.film_poster.url }}" alt="film_{{ film.film_original_title }}_poster" class="film-poster">
+        </div>
+
+        <div class="film-description-block">
+            <div class="description-list">
+                <h1 class="film-title">
+                    {{ film.film_title }}
+                    <span class="staff-text">
+                    {% if film.is_film_in_rent %}
+                        (в прокате)
+                    {% else %}
+                        (не в прокате)
+                    {% endif %}
+                    </span>
+                </h1>
+
+                <p class="film-description">
+                    <span class="staff-text">Описание:</span>
+                    {{ film.film_description }}
+                </p>
+
+                <p class="film-description">
+                    <span class="staff-text">Оригинальное название:</span>
+                    {{ film.film_original_title }}
+                </p>
+                <p class="film-description">
+                    <span class="staff-text">Год:</span>
+                    {{ film.film_year }}
+                </p>
+
+                <p class="film-description">
+                    <span class="staff-text">Режиссер:</span>
+                    {{ film.film_producer }}
+                </p>
+
+                <p class="film-description">
+                    <span class="staff-text">В ролях:</span>
+                    {% for role in film.film_roles.values %}
+                        {{ role.actor_name }};
+                    {% endfor %}
+                </p>
+
+                <p class="film-description">
+                    <span class="staff-text">Длительность:</span>
+                    {{ film.film_length }} минут
+                </p>
+
+                <p class="film-description">
+                    <span class="staff-text">Глобальная премьера:</span>
+                    {{ film.film_premiere }}
+                </p>
+
+                <p class="film-description">
+                    <span class="staff-text">Возрастное ограничение:</span>
+                    {{ film.film_age_limit }}+
+                </p>
+
+                <p class="film-description">
+                    <span class="staff-text">Жанр:</span>
+                    {% for genre in film.film_genre.values %}
+                        {{ genre.genre }};
+                    {% endfor %}
+                </p>
+            </div>
+            <hr>
+
+            <h1 class="film-schedule">
+                {% if schedule %}
+                    Расписание на ближайшие дни
+                {% else %}
+                    Доступных сеансов нет
+                {% endif %}
+            </h1>
+
+            {% for s in schedule %}
+                <p class="film-date">{{ s.show_date }}</p>
+            {% endfor %}
+            <hr>
+
+            <h1 class="reviews">
+                Отзывы ({{ reviews|length }})
+            </h1>
+
+            {% for review in reviews %}
+                <div class="review-block">
+                    <h2 class="review-author">{{ review.review_author }}</h2>
+                    <p class="review-text">{{ review.review_text }}</p>
+                </div>
+            {% endfor %}
+            <hr>
+            <form action="." class="leave-review-form" method="POST">
+                {% csrf_token %}
+                <h3 class="leave-review-header">Оставьте свой отзыв о фильме</h3>
+
+                <span class="staff-text">Имя:</span>
+                <input type="text" class="name" name="name">
+
+                <span class="staff-text">Рецензия:</span>
+                <textarea class="review" name="review"></textarea>
+
+                <button type="submit" class="submit">Отправить отзыв</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p class="credits">
+            ABOBA CINEMA all rights reserved. Developed by Maxim Moroz
+            <br>
+            Данный сайт не является интернет-магазином. Вся информация предоставлена в справочных интересах.
+        </p>
+    </div>
+{% endblock %}

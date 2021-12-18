@@ -1,0 +1,54 @@
+{% extends 'afisha/index.html' %}
+{% load static %}
+
+{% block head %}
+    <title>Афиша кинотетра</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+{% endblock %}
+
+{% block container %}
+    <div class="main-content">
+        <div class="main-content-greeting">
+            <a href="{% url 'main' %}" class="cinema-title">Кинотеатр «Aboba Cinema»</a>
+            <h1 class="main-info">Фильмов в прокате: {{ films_in_rent_number }}</h1>
+            <a href="#cinema-afisha" class="go-to-cinema-afisha">К афише ↓</a>
+        </div>
+
+
+        <div class="cinema-afisha" id="cinema-afisha">
+            <h1 class="popular">Популярное</h1>
+
+            <div class="most-recent-films">
+                {% for popular_film in popular_films %}
+                    <div class="film-frame">
+                        <a href="{{ popular_film.get_film_absolute_url }}" class="film-poster-link-backgrounded"
+                           style="background-image: url('{{ popular_film.film_poster.url }}')">
+                        </a>
+
+                        <a href="{{ popular_film.get_film_absolute_url }}"
+                           class="film-poster-link">{{ popular_film.film_title }}</a>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <h1 class="cinema-info">Информация о кинотеатре</h1>
+            <p class="cinema-description">
+                Кинотеатр «ABOBA CINEMA» был открыт в 1961 году. На его месте в 2008 году было возведено совершенно новое
+                здание – первый в республике мультиплекс.
+
+                В кинотеатре пять комфортабельных залов, оснащенных новейшим оборудованием. Зрителей также привлекает
+                удобное месторасположение рядом со станцией метро «Шлепская», современный интерьер и разнообразие
+                репертуара для зрителей всех возрастов и предпочтений. Налажена активная работа со сторонними
+                организациями по проведению корпоративных просмотров и презентаций. В кинотеатре просторное фойе с
+                игровой зоной, 2 барами и удобными диванчиками. Фойе используется для проведения предсеансовых
+                мероприятий и промоакций
+
+                В кинотеатре создана безбарьерная среда для людей с ограниченными возможностями. На сегодняшний день
+                минский кинотеатр «ABOBA CINEMA» пользуется самой большой популярностью у зрителей столицы.
+            </p>
+
+
+        </div>
+    </div>
+    <div class="main-footer"></div>
+{% endblock %}

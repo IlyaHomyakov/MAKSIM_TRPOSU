@@ -1,0 +1,120 @@
+.header {
+    height: 80px;
+    box-shadow: 0 0 1px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-link {
+    font-size: 48px;
+    color: black;
+    letter-spacing: 16px;
+    font-weight: 100;
+}
+
+.content {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 0;
+    min-height: calc(100vh - 80px - 80px - 100px);
+}
+
+.film-image {
+    width: 400px;
+}
+
+.film-description-block {
+    width: 1000px;
+    /*outline: 1px solid #000;*/
+    display: flex;
+    flex-direction: column;
+    padding: 50px 0;
+
+}
+
+.description-list {
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.film-title {
+    font-size: 38px;
+    letter-spacing: 2px;
+}
+
+.staff-text {
+    font-size: 18px;
+    line-height: 1.25;
+    font-weight: 600;
+}
+
+.film-description {
+    font-size: 18px;
+    line-height: 1.25;
+    letter-spacing: 1px;
+}
+
+.film-schedule {
+    margin: 50px 0 20px 0;
+}
+
+.film-date {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.footer {
+    box-shadow: 0 0 1px 0;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.reviews {
+    margin: 20px 0;
+}
+
+.review-block {
+    margin: 0 0 20px 0;
+}
+
+.leave-review-form {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    gap: 20px;
+}
+
+input.name {
+    height: 30px;
+    font-size: 18px;
+    font-family: 'Raleway', sans-serif;
+
+}
+
+textarea.review {
+    height: 300px;
+    font-size: 18px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.submit {
+    height: 30px;
+}
+
+.submit:hover {
+    cursor: pointer;
+}
+
+hr {
+    width: 100%;
+    border: 0;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.25);
+}
