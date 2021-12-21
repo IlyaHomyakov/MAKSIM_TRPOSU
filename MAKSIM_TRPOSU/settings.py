@@ -36,7 +36,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'afisha'
+    'afisha',
+
+
+    'django_extensions'
 ]
 
 MIDDLEWARE = [
